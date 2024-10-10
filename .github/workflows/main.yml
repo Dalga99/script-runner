@@ -1,27 +1,24 @@
-name: Run JavaScript Code
+name: Run JavaScript Script
 
 on:
-  push:
-    branches:
-      - main
   schedule:
-    - cron: '*/5 * * * *' # هر ۵ دقیقه یکبار اجرا می‌شود
+    - cron: "*/1 * * * *"  # اجرای هر ۱ دقیقه
 
 jobs:
-  run-code:
+  run-script:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout Repository
+      - name: Checkout repository
         uses: actions/checkout@v2
 
-      - name: Set up Node.js
+      - name: Setup Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: '14' # نسخه Node.js که می‌خواهید استفاده کنید
+          node-version: '18'  # به‌روزرسانی به نسخه‌ی Node 18
 
-      - name: Install Dependencies
-        run: npm install # اگر dependencies دارید، آن‌ها را نصب می‌کند
+      - name: Install dependencies
+        run: npm install
 
-      - name: Run JavaScript
-        run: node index.js # کد شما را اجرا می‌کند
+      - name: Run JavaScript script
+        run: node script.js
