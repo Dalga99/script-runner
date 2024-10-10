@@ -11,3 +11,4 @@ function makeMoney() {
 setInterval(makeMoney, 60 * 1000);
 console.log("Started..");
 makeMoney();
+ 
